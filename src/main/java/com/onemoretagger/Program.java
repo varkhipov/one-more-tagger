@@ -2,7 +2,10 @@ package com.onemoretagger;
 
 import com.mpatric.mp3agic.*;
 import com.onemoretagger.utils.TrackUtils;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
+import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -49,7 +52,30 @@ public class Program {
 			}
 		} catch (IOException | UnsupportedTagException | InvalidDataException e) {
 			e.printStackTrace();
+			//
 		}
+		FolderList();
 	}
 
+	public static void FolderList() {
+		File fld = new File(PATH_TO_TRACK.toString());
+		File parentFolder = new File (fld.getParent());
+
+		String[] lst = parentFolder.list(new FilenameFilter() {
+
+			@Override
+			public boolean accept(File fld, String name) {
+				return name.endsWith(".mp3");
+			}
+		});
+		System.out.println("This files are in directory: ");
+		for(String fileName: lst){
+			System.out.println(fileName);
+		}
+
+	}
 }
+
+
+
+
