@@ -13,18 +13,20 @@ import java.util.UUID;
  * Will be removed after basic view implementation
  */
 public class Program {
+	public static String trackInfo;
 	private static final Path PATH_TO_TRACK =
-			Paths.get(System.getProperty("user.home"), "tmp", "track.mp3");
+			Paths.get(System.getProperty("user.home"), "tmp", "Crazy.mp3");
 
 	private static final Path PATH_TO_CHANGED_TRACK =
 			Paths.get(System.getProperty("user.home"), "tmp", "changed_track.mp3");
 
 
-	public static void main(String[] args) {
+	public static void main() {
 		Mp3File mp3file = null;
 		try {
 			mp3file = new Mp3File(PATH_TO_TRACK.toString());
 
+			trackInfo = TrackUtils.getFullTrackInfo(mp3file);
 			TrackUtils.printTrackInfo(mp3file);
 			TrackUtils.printID3v1(mp3file);
 			TrackUtils.printID3v2(mp3file);
