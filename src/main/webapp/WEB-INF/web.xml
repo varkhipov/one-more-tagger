@@ -7,11 +7,11 @@
 
 	<servlet>
 		<servlet-name>testServlet</servlet-name>
-		<servlet-class>test.servlet.TestServlet</servlet-class>
+		<servlet-class>com.onemoretagger.servlets.EasyViewServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>testServlet</servlet-name>
-		<url-pattern>/test</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 </web-app>
